@@ -1,3 +1,9 @@
+### Research & Planning Log
+#### Friday, 02/11
+* 9:00: make a plan to acheive mvps
+* 10:30: research google geocode API
+* 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
