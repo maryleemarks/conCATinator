@@ -3,6 +3,7 @@
 * 9:00: make a plan to acheive mvps
 * 10:30: research google geocode API
 * 13:00: research adding photos and videos in react/firebase
+* 14:00: research adding authentication in firebase
 
 # Getting Started with Create React App
 
