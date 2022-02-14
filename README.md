@@ -4,6 +4,8 @@
 * 10:30 - 13:00: research google geocode API
 * 13:00 - 14:00: research adding photos and videos in react/firebase (realize you need to learn authentication first)
 * 14:00 - 14:30: research adding authentication in firebase
+#### Monday, 02/14
+* 11:00 - 13:30: try adding authentication to old project
 
 # Getting Started with Create React App
 
