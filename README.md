@@ -6,6 +6,8 @@
 * 14:00 - 14:30: research adding authentication in firebase
 #### Monday, 02/14
 * 11:00 - 13:30: try adding authentication to old project
+#### Sunday, 02/27
+* 09:45 - 16:45: Continue adding functionality to old project and watch countless tutorials
 
 # Getting Started with Create React App
 
