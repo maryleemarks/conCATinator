@@ -3,22 +3,43 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import CreateCat from "./Pages/CreateCat";
+import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/login";
+    });
+  };
+
   return (
     <Router>
       <nav>
         <Link to="/"> Home </Link>
-        <Link to="/createCat"> Create Cat </Link>
-        <Link to="/login"> Login </Link>
+
+        {!isAuth ? (
+          <Link to="/login"> Login </Link>
+        ) : (
+          <>
+            <Link to="/createCat"> Add Cat </Link>
+            <button onClick={signUserOut}> Log Out</button>
+          </>
+        )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/" element={<CreateCat />} />
+        <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route path="/createCat" element={<CreateCat isAuth={isAuth} />} />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
-    </Router>  
+    </Router>
   );
 }
+
 
 export default App;
