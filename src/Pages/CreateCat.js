@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { addDoc, collection } from 'firebase/firestore';
+import { db, auth } from "../firebase";
+import { useNavigate } from 'react-router-dom';
 
-function CreateCat() {
+function CreateCat({ isAuth }) {
+  const [name, setName] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const catsCollectionRef = collection(db, "cats");
+  let navigate = useNavigate();
+
+  const createCat = async () => {
+    await addDoc(catsCollectionRef, {name, notes, user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
+    });
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
   <div className='createPostPage'>
-    <div><h1>Add a cat</h1>
+    <div className="cpContainer">
+    <h1>Add a cat</h1>
     <div className="inputGp">
       <label>Name: </label>
-    </div>
-    <div>  
-      <input placeholder="Kitty's Name... "/>
+      <input placeholder="Kitty's Name... " onChange={(event) => {setName(event.target.value);}}/>
+    </div> 
+    <div className="inputGp">
       <label>Notes: </label>
-      <textarea placeholder="What's up with this kitty?"/>
+      <textarea placeholder="What's up with this kitty?" onChange={(event) => {setNotes(event.target.value);}}/>
     </div>
-  <button>Add Cat</button>
+  <button onClick={createCat}>Add Cat</button>
   </div> 
 </div>  
   );
