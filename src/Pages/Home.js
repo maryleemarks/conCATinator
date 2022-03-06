@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
-function Home() {
+function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
   const catsCollectionRef = collection(db, "cats");
 
@@ -13,24 +13,41 @@ function Home() {
     };
 
     getCats();
-  });
+  }, [deleteCat]);
+
+  const deleteCat = async (id) => {
+    const catDoc = doc(db, "cats", id);
+    await deleteDoc(postDoc);
+  };
   return (
     <div className="homePage">
-    {catLists.map((cat) => {
-      return (
-        <div className="post">
-          <div className="postHeader">
-            <div className="title">
-              <h1> {cat.name}</h1>
+      {catLists.map((cat) => {
+        return (
+          <div className="post">
+            <div className="postHeader">
+              <div className="title">
+                <h1> {cat.name}</h1>
+              </div>
+              <div className="deletePost">
+                {isAuth && cat.author.id === auth.currentUser.uid && (
+                  <button
+                    onClick={() => {
+                      deleteCat(cat.id);
+                    }}
+                  >
+                    {" "}
+                    &#128465;
+                  </button>
+                )}
+              </div>
             </div>
+            <div className="postTextContainer"> {cat.notes} </div>
+            <h3>@{cat.author.name}</h3>
           </div>
-          <div className="postTextContainer"> {cat.notes} </div>
-          <h3>@{cat.author.name}</h3>
-        </div>
-      );
-    })}
-  </div>
-);
+        );
+      })}
+    </div>
+  );
 }
 
 export default Home;

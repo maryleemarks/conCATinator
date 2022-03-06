@@ -33,13 +33,12 @@ function App() {
         )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route path="/home" element={<Home isAuth={isAuth} />} />
         <Route path="/createCat" element={<CreateCat isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
   );
 }
-
 
 export default App;
