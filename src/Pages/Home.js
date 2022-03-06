@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { getDocs, collection, doc } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import '../App.css';
 
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
@@ -9,16 +10,18 @@ function Home({ isAuth }) {
   useEffect(() => {
     const getCats = async () => {
       const data = await getDocs(catsCollectionRef);
+      console.log(data);
       setCatList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getCats();
-  }, [deleteCat]);
+  });  
+  // }, [deleteCat]);
 
-  const deleteCat = async (id) => {
-    const catDoc = doc(db, "cats", id);
-    await deleteDoc(postDoc);
-  };
+  // const deleteCat = async (id) => {
+  //   const catDoc = doc(db, "cats", id);
+  //   await deleteDoc(postDoc);
+  // };
   return (
     <div className="homePage">
       {catLists.map((cat) => {
@@ -28,8 +31,8 @@ function Home({ isAuth }) {
               <div className="title">
                 <h1> {cat.name}</h1>
               </div>
-              <div className="deletePost">
-                {isAuth && cat.author.id === auth.currentUser.uid && (
+              {/* <div className="deletePost">
+                {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
                       deleteCat(cat.id);
@@ -39,10 +42,10 @@ function Home({ isAuth }) {
                     &#128465;
                   </button>
                 )}
-              </div>
+              </div> */}
             </div>
             <div className="postTextContainer"> {cat.notes} </div>
-            <h3>@{cat.author.name}</h3>
+            <h3>@{cat.user.author}</h3>
           </div>
         );
       })}
