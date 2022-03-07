@@ -30,18 +30,18 @@ function Home({ isAuth }) {
               <div className="title">
                 <h1> {cat.name}</h1>
               </div>
-              {/* <div className="deletePost">
+              <div className="editPost">
                 {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      deleteCat(cat.id);
+                      editCat(cat.id);
                     }}
                   >
                     {" "}
                     &#128465;
                   </button>
                 )}
-              </div> */}
+              </div> 
             </div>
             <div className="postTextContainer"> {cat.notes} </div>
             <h3>@{cat.user.author}</h3>

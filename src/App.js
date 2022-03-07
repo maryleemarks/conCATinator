@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import CreateCat from "./Pages/CreateCat";
+import EditCat from "./Pages/EditCat";
 //import AddPhoto from "./Pages/AddPhoto";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
@@ -29,6 +30,7 @@ function App() {
         ) : (
           <>
             <Link to="/createCat"> Add Cat </Link>
+            <Link to="/editCat"> Edit Cat </Link>
             <button onClick={signUserOut}> Log Out</button>
           </>
           
@@ -37,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/createCat" element={<CreateCat isAuth={isAuth} />} />
+        <Route path="/editCat" element={<EditCat isAuth={isAuth} />} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
