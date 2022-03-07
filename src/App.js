@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import CreateCat from "./Pages/CreateCat";
+//import AddPhoto from "./Pages/AddPhoto";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
@@ -30,6 +31,7 @@ function App() {
             <Link to="/createCat"> Add Cat </Link>
             <button onClick={signUserOut}> Log Out</button>
           </>
+          
         )}
       </nav>
       <Routes>
