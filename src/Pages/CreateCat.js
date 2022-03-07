@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { addDoc, collection } from 'firebase/firestore';
-import { db, auth } from "../firebase";
+import { db, auth, storage } from "../firebase";
 import { useNavigate } from 'react-router-dom';
 
 function CreateCat({ isAuth }) {

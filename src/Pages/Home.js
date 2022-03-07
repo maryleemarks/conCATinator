@@ -10,7 +10,6 @@ function Home({ isAuth }) {
   useEffect(() => {
     const getCats = async () => {
       const data = await getDocs(catsCollectionRef);
-      console.log(data);
       setCatList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
