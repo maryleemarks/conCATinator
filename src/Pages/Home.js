@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, doc, deleteDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
   const catsCollectionRef = collection(db, "cats");
+
+  
+  //let { cat } = useParams();
 
   useEffect(() => {
     const getCats = async () => {
@@ -21,6 +25,8 @@ function Home({ isAuth }) {
      const catDoc = doc(db, "cats", id);
      await deleteDoc(catDoc);
    };
+
+   let navigate = useNavigate();
 
   return (
     <div className="homePage">
@@ -48,6 +54,7 @@ function Home({ isAuth }) {
                   <button
                     onClick={() => {
                       editCat(cat.id);
+                      navigate("/editCat");
                     }}
                   >
                     {" "}

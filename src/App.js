@@ -30,7 +30,6 @@ function App() {
         ) : (
           <>
             <Link to="/createCat"> Add Cat </Link>
-            <Link to="/editCat"> Edit Cat </Link>
             <button onClick={signUserOut}> Log Out</button>
           </>
           
