@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, doc } from "firebase/firestore";
+import { getDocs, collection, doc, deleteDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import '../App.css';
 
@@ -15,12 +15,13 @@ function Home({ isAuth }) {
 
     getCats();
   });  
-  // }, [deleteCat]);
+   //}, [deleteCat]);
 
-  // const deleteCat = async (id) => {
-  //   const catDoc = doc(db, "cats", id);
-  //   await deleteDoc(postDoc);
-  // };
+   const deleteCat = async (id) => {
+     const catDoc = doc(db, "cats", id);
+     await deleteDoc(catDoc);
+   };
+
   return (
     <div className="homePage">
       {catLists.map((cat) => {
@@ -34,7 +35,7 @@ function Home({ isAuth }) {
                 {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      editCat(cat.id);
+                      deleteCat(cat.id);
                     }}
                   >
                     {" "}
