@@ -23,6 +23,7 @@ function App() {
   return (
     <Router>
       <nav>
+      <h1>&#128008; The conCATinator &#128008;</h1>
         <Link to="/"> Home </Link>
 
         {!isAuth ? (
@@ -35,6 +36,7 @@ function App() {
           
         )}
       </nav>
+      
       <Routes>
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/createCat" element={<CreateCat isAuth={isAuth} />} />

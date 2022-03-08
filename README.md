@@ -11,6 +11,8 @@
 #### Sunday, 03/06
 * 03:00 - 15:00: Watch tutorials for adding photos, break project rying to implement tutorials, fix it. Run out of storage on firebase and try to figure out a way to not pay for firebase. 
 * 15:00 - 17:00: Watch tutorials and try to implement star rating and adding photos to old project. Decide to make MVP smaller.
+#### Monday, 03/07
+* 19:00 - 20:00: Watch tutorials for adding a gif to css
 
 # Getting Started with Create React App
 
