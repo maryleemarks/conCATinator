@@ -13,6 +13,7 @@
 * 15:00 - 17:00: Watch tutorials and try to implement star rating and adding photos to old project. Decide to make MVP smaller.
 #### Monday, 03/07
 * 19:00 - 20:00: Watch tutorials for adding a gif to css
+* 20:00 - 22:00: Try to figure out how to fix reoccuring issue with firestore storage
 
 # Getting Started with Create React App
 

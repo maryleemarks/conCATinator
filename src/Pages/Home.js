@@ -18,12 +18,13 @@ function Home({ isAuth }) {
     };
 
     getCats();
-  });  
-   //}, [deleteCat]);
+    
+   }, []);
 
    const deleteCat = async (id) => {
      const catDoc = doc(db, "cats", id);
      await deleteDoc(catDoc);
+    // window.location.reload();
    };
 
    let navigate = useNavigate();
