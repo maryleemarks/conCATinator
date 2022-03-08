@@ -43,6 +43,18 @@ function Home({ isAuth }) {
                   </button>
                 )}
               </div> 
+              <div className="editPost">
+                {isAuth && cat.user.id === auth.currentUser.uid && (
+                  <button
+                    onClick={() => {
+                      editCat(cat.id);
+                    }}
+                  >
+                    {" "}
+                    &#9999;
+                  </button>
+                )}
+              </div> 
             </div>
             <div className="postTextContainer"> {cat.notes} </div>
             <h3>@{cat.user.author}</h3>
