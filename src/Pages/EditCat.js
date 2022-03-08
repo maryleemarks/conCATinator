@@ -17,7 +17,6 @@ function EditCat({ isAuth }) {
     //const incRating = { rating: rating + 1 };
     //const decRating = { rating: rating -- };
     await updateDoc(catDoc);
-  };
     navigate("/");
   };
 
@@ -52,8 +51,8 @@ function EditCat({ isAuth }) {
 
     <button onClick={() => {editCat (cat.id, cat.name. cat.notes);}}>Update Cat</button>
     </div> 
-</div>  
+  </div>  
   );
-}
 
+}
 export default EditCat;
