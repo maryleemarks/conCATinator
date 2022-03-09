@@ -13,7 +13,7 @@ function CreateCat({ isAuth }) {
   let navigate = useNavigate();
 
   const createCat = async () => {
-    await addDoc(catsCollectionRef, {name, notes, likes, user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
+    await addDoc(catsCollectionRef, {name, notes, likes , user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
     navigate("/");
   };
@@ -35,6 +35,10 @@ function CreateCat({ isAuth }) {
     <div className="inputGp">
       <label>Notes: </label>
       <textarea placeholder="What's up with this kitty?" onChange={(event) => {setNotes(event.target.value);}}/>
+    </div>
+    <div className="inputGp">
+      <label>&#128571;: </label>
+      <textarea placeholder="Enter 0" onChange={(event) => {setLikes(event.target.value);}}/>
     </div>
   <button onClick={createCat}>Add Cat</button>
   </div> 

@@ -7,10 +7,11 @@ import { useNavigate } from 'react-router-dom';
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
   const catsCollectionRef = collection(db, "cats");
-  const [newLike, setNewLike] = useState(0);
+  //const [newLikes, setNewLikes] = useState(0);
 
   
   //let { cat } = useParams();
+  
 
   useEffect(() => {
     const getCats = async () => {
@@ -23,16 +24,16 @@ function Home({ isAuth }) {
    }, []);
 
    const deleteCat = async (id) => {
-     const catDoc = doc(db, "cats", id);
-     await deleteDoc(catDoc);
-    // window.location.reload();
-   };
+    const catDoc = doc(db, "cats", id);
+    await deleteDoc(catDoc);
+   // window.location.reload();
+  };
 
-   const likeCat = async (id, likes) => {
-     const catDoc = doc(db, "cats", id);
-     const addLike = { likes: likes + 1 };
-     await updateDoc(catDoc, addLike);
-   };
+  const likeCat = async (id, likes) => {
+    const catDoc = doc(db, "cats", id);
+    const addLike = { likes: likes + 1 };
+    await updateDoc(catDoc, addLike);
+  };
 
    let navigate = useNavigate();
 
@@ -74,7 +75,7 @@ function Home({ isAuth }) {
                 {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      likeCat(cat.id);
+                      likeCat(cat.id, cat.like);
                     }}
                   >
                     {" "}
@@ -85,6 +86,7 @@ function Home({ isAuth }) {
             </div>
             <div className="postTextContainer"> {cat.notes} </div>
             <h3>@{cat.user.author}</h3>
+            <h3> {likes} &#128571; </h3>
           </div>
         );
       })}

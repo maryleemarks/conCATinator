@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function EditCat({ isAuth }) {
   const [newName, setNewName] = useState("");
   const [newNotes, setNewNotes] = useState("");
+  
 
   const [cats, setCats] = useState([]);
   const catsCollectionRef = collection(db, "cats");
