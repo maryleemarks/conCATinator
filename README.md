@@ -9,11 +9,11 @@
 #### Sunday, 02/27
 * 09:45 - 16:45: Continue adding functionality to old project and watch countless tutorials
 #### Sunday, 03/06
-* 03:00 - 15:00: Watch tutorials for adding photos, break project rying to implement tutorials, fix it. Run out of storage on firebase and try to figure out a way to not pay for firebase. 
+* 09:00 - 15:00: Watch tutorials for adding photos, break project trying to implement tutorials, fix it. Run out of storage on firebase and try to figure out a way to not pay for firebase. 
 * 15:00 - 17:00: Watch tutorials and try to implement star rating and adding photos to old project. Decide to make MVP smaller.
 #### Monday, 03/07
 * 19:00 - 20:00: Watch tutorials for adding a gif to css
-* 20:00 - 22:00: Try to figure out how to fix reoccuring issue with firestore storage
+* 20:00 - 21:00: Try to figure out how to fix reoccuring issue with firestore storage
 
 # Getting Started with Create React App
 
