@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 function CreateCat({ isAuth }) {
   const [name, setName] = useState("");
   const [notes, setNotes] = useState("");
+  const [likes, setLikes] = useState("");
 
   const catsCollectionRef = collection(db, "cats");
   let navigate = useNavigate();
 
   const createCat = async () => {
-    await addDoc(catsCollectionRef, {name, notes, user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
+    await addDoc(catsCollectionRef, {name, notes, likes, user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
     navigate("/");
   };

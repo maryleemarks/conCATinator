@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, doc, deleteDoc } from "firebase/firestore";
+import { getDocs, collection, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
   const catsCollectionRef = collection(db, "cats");
+  const [newLike, setNewLike] = useState(0);
 
   
   //let { cat } = useParams();
@@ -25,6 +26,12 @@ function Home({ isAuth }) {
      const catDoc = doc(db, "cats", id);
      await deleteDoc(catDoc);
     // window.location.reload();
+   };
+
+   const likeCat = async (id, likes) => {
+     const catDoc = doc(db, "cats", id);
+     const addLike = { likes: likes + 1 };
+     await updateDoc(catDoc, addLike);
    };
 
    let navigate = useNavigate();
@@ -60,6 +67,18 @@ function Home({ isAuth }) {
                   >
                     {" "}
                     &#9999;
+                  </button>
+                )}
+              </div> 
+              <div className="editPost">
+                {isAuth && cat.user.id === auth.currentUser.uid && (
+                  <button
+                    onClick={() => {
+                      likeCat(cat.id);
+                    }}
+                  >
+                    {" "}
+                    &#128571;
                   </button>
                 )}
               </div> 
