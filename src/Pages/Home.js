@@ -75,7 +75,7 @@ function Home({ isAuth }) {
                 {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      likeCat(cat.id, cat.like);
+                      likeCat(cat.id, cat.likes);
                     }}
                   >
                     {" "}
