@@ -27,7 +27,7 @@ function CreateCat({ isAuth }) {
   return (
   <div className='createPostPage'>
     <div className="cpContainer">
-    <h1>Add a cat</h1>
+    <h1>Add a New Cat</h1>
     <div className="inputGp">
       <label>Name: </label>
       <input placeholder="Kitty's Name... " onChange={(event) => {setName(event.target.value);}}/>

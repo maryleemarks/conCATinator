@@ -40,7 +40,7 @@ function EditCat({ isAuth }) {
   return (
   <div className='createPostPage'>
     <div className="cpContainer">
-    <h1>Edit cat</h1>
+    <h1>Edit This Cat</h1>
     <div className="inputGp">
       <label>Name: </label>
       <input placeholder="Kitty's Name... " onChange={(event) => {setNewName(event.target.value);}}/>
