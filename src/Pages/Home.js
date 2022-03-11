@@ -10,6 +10,8 @@ function Home({ isAuth }) {
   //const [likes, setlikes] = useState(0);
 
   
+
+  
   //let { cat } = useParams();
   const likeCat = async (id, likes) => {
     const catDoc = doc(db, "cats", id);
