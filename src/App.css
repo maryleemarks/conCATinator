@@ -29,7 +29,8 @@ a {
 
 .createPostPage {
   width: 100%;
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
+  background-color: black;
   display: grid;
   place-items: center;
 }
@@ -38,9 +39,9 @@ a {
   width: 500px;
   height: auto;
   padding: 20px;
-  background-color: black;
+  background-color: white;
   border-radius: 12px;
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
 }
@@ -61,7 +62,7 @@ a {
 .inputGp input,
 .inputGp textarea {
   font-size: 18px;
-  border: none;
+  border-style: groove;
   border-radius: 2px;
   padding: 5px;
 }
