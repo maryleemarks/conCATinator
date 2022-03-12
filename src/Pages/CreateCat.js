@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom';
 function CreateCat({ isAuth }) {
   const [newName, setNewName] = useState("");
   const [newNotes, setNewNotes] = useState("");
-  const [newLikes, setNewLikes] = useState(0);
+  const [newSightings, setNewSightings] = useState(0);
 
   const catsCollectionRef = collection(db, "cats");
   let navigate = useNavigate();
 
   const createCat = async () => {
-    await addDoc(catsCollectionRef, {name: newName, notes: newNotes, likes: Number(newLikes) , user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
+    await addDoc(catsCollectionRef, {name: newName, notes: newNotes, sightings: Number(newSightings) , user: {author: auth.currentUser.displayName, id: auth.currentUser.uid },
     });
     navigate("/");
   };
@@ -38,7 +38,7 @@ function CreateCat({ isAuth }) {
      </div>
      <div className="inputGp">
       <label>&#128571;: </label>
-      <input placeholder="How many times have you seen this kitty?" onChange={(event) => {setNewLikes(event.target.value);}}/>
+      <input placeholder="How many times have you seen this kitty?" onChange={(event) => {setNewSightings(event.target.value);}}/>
     </div>  
   <button onClick={createCat}>Add Cat</button>
   </div> 

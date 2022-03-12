@@ -13,10 +13,10 @@ function Home({ isAuth }) {
 
   
   //let { cat } = useParams();
-  const likeCat = async (id, likes) => {
+  const catSighting = async (id, sightings) => {
     const catDoc = doc(db, "cats", id);
-    const addLike = { likes: likes + 1 };
-    await updateDoc(catDoc, addLike);
+    const addSighting = { sightings: sightings + 1 };
+    await updateDoc(catDoc, addSighting);
   };
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function Home({ isAuth }) {
                 {isAuth && cat.user.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      likeCat(cat.id, cat.likes);
+                      catSighting(cat.id, cat.sightings);
                     }}
                   >
                     {" "}
@@ -88,7 +88,7 @@ function Home({ isAuth }) {
             </div>
             <div className="postTextContainer"> {cat.notes} </div>
             <h3>@{cat.user.author}</h3>
-            <h3> {cat.likes} &#128571; </h3>
+            <h3> {cat.sightings} &#128571; </h3>
           </div>
         );
       })}
