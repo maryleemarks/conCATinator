@@ -3,6 +3,7 @@ import { getDocs, collection, doc, deleteDoc, updateDoc } from "firebase/firesto
 import { auth, db } from "../firebase";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import mapImage from "../Img/Map.jpg"
 
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
@@ -80,9 +81,10 @@ function Home({ isAuth }) {
             </div>
             <img src="https://cataas.com/cat/cute/says/hello" alt="Random Cat"></img>
             <div className="postTextContainer"> {cat.notes} </div>
-            
-            <h3>@{cat.user.author}</h3>
             <h3> {cat.sightings} &#128571; </h3>
+            <img src={mapImage} alt="an image of a map" />
+            <h3>@{cat.user.author}</h3>
+            
           </div>
         );
       })}
