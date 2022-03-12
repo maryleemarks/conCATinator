@@ -38,7 +38,7 @@ function CreateCat({ isAuth }) {
      </div>
      <div className="inputGp">
       <label>&#128571;: </label>
-      <input placeholder="Enter 0" onChange={(event) => {setNewLikes(event.target.value);}}/>
+      <input placeholder="How many times have you seen this kitty?" onChange={(event) => {setNewLikes(event.target.value);}}/>
     </div>  
   <button onClick={createCat}>Add Cat</button>
   </div> 
