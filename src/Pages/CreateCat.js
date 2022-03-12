@@ -3,7 +3,6 @@ import { addDoc, collection } from 'firebase/firestore';
 import { db, auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
 
-
 function CreateCat({ isAuth }) {
   const [newName, setNewName] = useState("");
   const [newNotes, setNewNotes] = useState("");

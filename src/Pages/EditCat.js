@@ -3,20 +3,16 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase
 import { db, auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
 
-
 function EditCat({ isAuth }) {
   const [newName, setNewName] = useState("");
   const [newNotes, setNewNotes] = useState("");
   
-
   const [cats, setCats] = useState([]);
   const catsCollectionRef = collection(db, "cats");
   let navigate = useNavigate();
 
   const editCat = async (id) => {
     const catDoc = doc(db, "cats", id);
-    //const incRating = { rating: rating + 1 };
-    //const decRating = { rating: rating -- };
     await updateDoc(catDoc);
     navigate("/");
   };

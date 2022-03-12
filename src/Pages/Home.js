@@ -7,12 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Home({ isAuth }) {
   const [catLists, setCatList] = useState([]);
   const catsCollectionRef = collection(db, "cats");
-  //const [likes, setlikes] = useState(0);
-
-  
-
-  
-  //let { cat } = useParams();
+ 
   const catSighting = async (id, sightings) => {
     const catDoc = doc(db, "cats", id);
     const addSighting = { sightings: sightings + 1 };
@@ -32,10 +27,7 @@ function Home({ isAuth }) {
    const deleteCat = async (id) => {
     const catDoc = doc(db, "cats", id);
     await deleteDoc(catDoc);
-   // window.location.reload();
   };
-
-  
 
    let navigate = useNavigate();
 
