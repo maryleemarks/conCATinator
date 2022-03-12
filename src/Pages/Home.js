@@ -78,7 +78,9 @@ function Home({ isAuth }) {
                 )}
               </div> 
             </div>
+            <img src="https://cataas.com/cat/cute/says/hello" alt="Random Cat"></img>
             <div className="postTextContainer"> {cat.notes} </div>
+            
             <h3>@{cat.user.author}</h3>
             <h3> {cat.sightings} &#128571; </h3>
           </div>
