@@ -1,3 +1,22 @@
+# conCATinator
+
+#### An application that allows you to keep track of all your kitty friends and foes
+
+#### By **Mary Marks**
+
+## Technologies Used
+
+* React.js
+* JavaScript
+* JSX
+* CSS
+* Firebase/Firestore
+
+## Description
+
+This is an capstone project for Epicodus to demonstrate skills I have learned throughout my time at Epicodus. This app allows users to log in through gmail, add cats and add sightings to their cats. Users can also view other users cats. Functionality will eventually allow users to edit cat names and descriptions, as well as allow users to add photos, videos and a map of all cat sightings. 
+
+
 ### Research & Planning Log
 #### Friday, 02/11
 * 9:00 - 10:30: make a plan to acheive mvps
